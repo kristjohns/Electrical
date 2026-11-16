@@ -86,8 +86,8 @@ module.exports = api => {
   api.scene('basics-ac', {
     lines: [
       '@ac|The grid does not push in one direction. It uses alternating current. The voltage swings smoothly from positive to negative and back, fifty times every second.',
-      '@rms|When we say two hundred and thirty volts, we mean the effective value, the R M S. The actual peak is about three hundred and twenty five volts.',
-      '@why_rms|R M S is defined so that the heating power comes out the same as direct current at that voltage.',
+      '@rms|When we say two hundred and thirty volts, we mean the effective value, the RMS. The actual peak is about three hundred and twenty five volts.',
+      '@why_rms|RMS is defined so that the heating power comes out the same as direct current at that voltage.',
       '@jiggle|It also means the electrons in your wires hardly travel at all. They vibrate back and forth, less than a thousandth of a millimetre. What travels is energy, carried by the electromagnetic field around the wires, at a good fraction of the speed of light.',
       '@whyac|Why alternate at all? Because alternating current can be transformed. That single trick is what makes a national grid possible. We will get there.',
     ],
@@ -145,7 +145,7 @@ module.exports = api => {
     lines: [
       '@L|Two more translations. An inductor, a coil, behaves like mass. It resists changes in current, the way inertia resists changes in velocity.',
       '@C|A capacitor behaves like a spring. It stores energy, and pushes back.',
-      '@phi|In an A C circuit, these elements push the current out of step with the voltage. Only the in-step part delivers net power. The ratio is called the power factor, cosine phi.',
+      '@phi|In an AC circuit, these elements push the current out of step with the voltage. Only the in-step part delivers net power. The ratio is called the power factor, cosine phi.',
     ],
     draw(g, s) {
       const t = s.t, w = t * 2.2;

@@ -52,7 +52,7 @@ module.exports = api => {
       '@shaft|The turbine shaft drives a synchronous generator. The rotor is an electromagnet, fed with direct current, so it carries a magnetic field around with it.',
       "@faraday|Faraday's law says: a changing magnetic flux through a coil induces a voltage. As the rotor sweeps past a stator coil, the flux through it rises, falls, and reverses. Out comes a sine wave.",
       '@three|Now place three coils around the stator, a hundred and twenty degrees apart. You get three voltages, identical, but each shifted by a third of a period. This is three-phase power. The three conductors are called L one, L two and L three.',
-      '@sync|The frequency is locked to the rotation. A two pole machine needs three thousand revolutions per minute to make fifty hertz. Hydro generators turn more slowly, so they have many poles. With twelve poles, five hundred R P M gives exactly fifty hertz.',
+      '@sync|The frequency is locked to the rotation. A two pole machine needs three thousand revolutions per minute to make fifty hertz. Hydro generators turn more slowly, so they have many poles. With twelve poles, five hundred RPM gives exactly fifty hertz.',
     ],
     draw(g, s) {
       const t = s.t, th = t * 1.5;

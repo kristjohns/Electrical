@@ -49,7 +49,7 @@ module.exports = api => {
       '@how|Two coils share one iron core. Alternating current in the first coil creates an alternating magnetic flux in the core. That flux induces a voltage in every single turn of the second coil.',
       '@ratio|So the voltage ratio is simply the turns ratio. Ten times more turns gives ten times more voltage. And because power is conserved, ten times less current.',
       '@gear|It is a gearbox for electricity. It trades voltage against current, just as a gearbox trades speed against torque. And it is astonishingly efficient. Large units exceed ninety nine percent.',
-      '@dc|But it only works while the flux is changing. Feed it direct current, and nothing comes out. That is why the grid is A C.',
+      '@dc|But it only works while the flux is changing. Feed it direct current, and nothing comes out. That is why the grid is AC.',
     ],
     draw(g, s) {
       const t = s.t;
@@ -165,7 +165,7 @@ module.exports = api => {
       g.line([[0, GY], [W, GY]], { c: '#2a3b66', w: 2.5, a: s.p(0.4, 0.8) });
       const st = [s.in('levels', 2.6, 1.0, E.o), s.in('regional', 0.2, 1.0, E.o), s.in('dist', 0.2, 1.0, E.o)];
       // faulty span logic (stage 1, second span)
-      const ft = s.since('pylon') - 7.2, fault = ft > 0 && ft < 0.5, cleared = ft >= 0.35;
+      const ft = s.sinceE('pylon') - 7.2, fault = ft > 0 && ft < 0.5, cleared = ft >= 0.35;
       // --- stage 1: 420 kV
       g.alpha(st[0], () => {
         const a = [P.pylon(g, 170, GY, 340), P.pylon(g, 470, GY, 340)];

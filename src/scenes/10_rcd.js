@@ -151,9 +151,9 @@ module.exports = api => {
       P.panel(g, bx, ty + (1 - bp) * 16, 560, 310, bp, { c: rgba(C.warn, 0.5) });
       if (bp > 0) g.alpha(bp, () => {
         g.text('TEST BUTTON', bx + 26, ty + 40, { s: 20, c: C.warn, wt: 700, ls: 3 });
-        const press = ((s.since('test') - 3) % 6) > 0 && ((s.since('test') - 3) % 6) < 2.4 && s.since('test') > 3, cy = ty + 170, rx2 = bx + 250;
+        const press = ((s.sinceE('test') - 3) % 6) > 0 && ((s.sinceE('test') - 3) % 6) < 2.4 && s.sinceE('test') > 3, cy = ty + 170, rx2 = bx + 250;
         ringPart(g, rx2, cy, 30, 86, false, { net: press ? 1 : 0 });
-        [cy - 30, cy + 30].forEach((yy, k) => g.wire([[bx + 40, yy], [bx + 420, yy]], { c: PH[k], w: 5, flow: !press || ((s.since('test') - 3) % 6) < 0.5, on: press && ((s.since('test') - 3) % 6) > 0.5 ? 0.1 : 1, t, off: -Math.cos(t * 2.4 - k * Math.PI) * 40, gap: 50 }));
+        [cy - 30, cy + 30].forEach((yy, k) => g.wire([[bx + 40, yy], [bx + 420, yy]], { c: PH[k], w: 5, flow: !press || ((s.sinceE('test') - 3) % 6) < 0.5, on: press && ((s.sinceE('test') - 3) % 6) > 0.5 ? 0.1 : 1, t, off: -Math.cos(t * 2.4 - k * Math.PI) * 40, gap: 50 }));
         ringPart(g, rx2, cy, 30, 86, true, { net: press ? 1 : 0 });
         // bypass: from L1 before the ring, around it, to L2 after the ring
         const byp = [[bx + 150, cy - 30], [bx + 150, cy - 112], [bx + 350, cy - 112], [bx + 350, cy + 30]];
@@ -179,7 +179,7 @@ module.exports = api => {
       cols.forEach(([x, a, b, col, p]) => { P.panel(g, x, 210 + (1 - p) * 20, 560, 770, p, { c: rgba(col, 0.45) }); g.text(a, x + 30, 252, { s: 22, c: col, wt: 700, ls: 3, a: p }); g.text(b, x + 30, 286, { s: 20, c: C.dim, it: true, a: p }); });
       // --- SPD
       g.alpha(cols[0][4], () => {
-        const x = 90, cyc = (s.since('surge') - 14) % 5.5, hit = s.since('surge') > 14 && cyc >= 0 && cyc < 1.2, k = hit ? Math.exp(-cyc * 4) : 0;
+        const x = 90, cyc = (s.sinceE('surge') - 14) % 5.5, hit = s.sinceE('surge') > 14 && cyc >= 0 && cyc < 1.2, k = hit ? Math.exp(-cyc * 4) : 0;
         // waveform incoming vs clamped
         const wx = x + 40, ww = 480, spike = xv => Math.sin(xv) * 0.22 + 1.0 * Math.exp(-Math.pow((xv - 7.6) / 0.11, 2));
         g.text('incoming', wx, 336, { s: 18, c: C.bad }); g.plot(spike, wx, 340, ww, 150, { xr: [0, TAU * 2.4], yr: [-0.3, 1.1], c: C.bad, w: 3.5, glow: 0.6, n: 300 });
@@ -213,7 +213,7 @@ module.exports = api => {
       // --- old fuse
       g.alpha(cols[2][4], () => {
         const x = 1270, cx = x + 280, top = 340, bot = 760;
-        const cyc = Math.max(0, s.since('old') - 9.5) % 9, blowing = s.since('old') > 9.5, heat = blowing ? clamp(cyc / 2.2) : 0, gap = blowing ? clamp((cyc - 2.2) / 1.2) : 0;
+        const cyc = Math.max(0, s.sinceE('old') - 9.5) % 9, blowing = s.sinceE('old') > 9.5, gap = blowing ? clamp((cyc - 2.2) / 1.2) : 0, heat = blowing ? clamp(cyc / 2.2) * (1 - clamp((cyc - 3.2) / 1.6)) : 0;
         // ceramic body
         g.path(c => { c.moveTo(cx - 70, top); c.lineTo(cx + 70, top); c.lineTo(cx + 94, bot - 60); c.lineTo(cx + 50, bot); c.lineTo(cx - 50, bot); c.lineTo(cx - 94, bot - 60); c.closePath(); }, { fill: '#e9e3d6', c: '#b9ae96', w: 4 });
         g.path(c => { c.moveTo(cx - 50, top + 26); c.lineTo(cx + 50, top + 26); c.lineTo(cx + 68, bot - 66); c.lineTo(cx + 36, bot - 26); c.lineTo(cx - 36, bot - 26); c.lineTo(cx - 68, bot - 66); c.closePath(); }, { fill: '#c9b48a', w: 0 });

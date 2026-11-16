@@ -1,5 +1,6 @@
 const { W, H, C, E, pr, clamp, lerp, TAU, rgba, mix, plen, pat, psub, sample, rnd, noise1 } = require('../lib/core');
 const P = require('../lib/parts');
+const S8 = require('./08_home');
 
 const rot = (px, py, cx, cy, a) => { const dx = px - cx, dy = py - cy, c = Math.cos(a), s = Math.sin(a); return [cx + dx * c - dy * s, cy + dx * s + dy * c]; };
 function zig(a, b, n, amp) { const pts = [a]; for (let i = 1; i < n; i++) { const u = i / n, x = lerp(a[0], b[0], u), y = lerp(a[1], b[1], u), dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1; pts.push([x - dy / l * amp * (i % 2 ? 1 : -1), y + dx / l * amp * (i % 2 ? 1 : -1)]); } pts.push(b); return pts; }
@@ -138,6 +139,19 @@ module.exports = api => {
       lab([648, 300], 960, 228, 'Bimetal strip', null, 'inside', 12.8, C.hot, 'l');
       lab([240, 384], 250, 985, 'Arc chute', 'slukkekammer', 'inside', 14.2);
       lab([548, 436], 700, 985, 'Spring + latch', null, 'inside', 14.8);
+      // intro panel: the same breaker as seen in the board
+      const ip = s.in('inside', 0.8, 0.8, E.o) * s.out('over', -0.4);
+      if (ip > 0) {
+        P.panel(g, 1170, 215, 670, 765, ip);
+        g.alpha(ip, () => {
+          g.text('AS YOU SEE IT IN THE BOARD', 1200, 252, { s: 20, c: C.l1, wt: 700, ls: 3 });
+          g.tf({ x: 1230, y: 320, s: 4.2 }, () => S8.module_(g, 0, 0, 78, 130, { kind: 'rcbo', rating: 'B16' }));
+        });
+        P.callout(g, 1440, 429, 1600, 360, 'B 16', 'type B, 16 A rated', ip * s.in('inside', 2.0), { c: C.l1, al: 'l', s: 24, ss: 18 });
+        P.callout(g, 1420, 590, 1600, 640, 'Lever', 'on / off / tripped', ip * s.in('inside', 3.0), { c: C.ink, al: 'l', s: 24, ss: 18 });
+        P.callout(g, 1516, 446, 1600, 500, 'Test button', 'earth-fault part', ip * s.in('inside', 4.0), { c: C.warn, al: 'l', s: 24, ss: 18 });
+        g.text('36 mm wide  ·  two poles', 1505, 930, { s: 22, c: C.dim, al: 'c', p: ip * s.in('inside', 5.0) });
+      }
       // right panel: current gauge + cable temperature
       const rp = s.in('over', 0.3, 0.8, E.o), rx = 1170;
       P.panel(g, rx, 215, 670, 360, rp);

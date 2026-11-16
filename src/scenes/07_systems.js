@@ -111,7 +111,7 @@ module.exports = api => {
   // ------------------------------------------------------------------ TN then IT
   api.scene('sys-compare', {
     lines: [
-      "@std|Let's start with the European standard, called T N. The transformer's three secondary windings are connected in a star. The centre of the star, the neutral point, is connected solidly to earth, and brought out as a fourth conductor.",
+      "@std|Let's start with the European standard, called TN. The transformer's three secondary windings are connected in a star. The centre of the star, the neutral point, is connected solidly to earth, and brought out as a fourth conductor.",
       '@v|Each winding produces two hundred and thirty volts. So from any line to neutral, you get two hundred and thirty. From line to line, root three times more: four hundred.',
       '@use|Sockets and lights connect between one line and the neutral. Large loads can use all three lines, at four hundred volts.',
       '@new|This is what is built in new Norwegian developments today.',
@@ -176,7 +176,7 @@ module.exports = api => {
   // ------------------------------------------------------------------ first fault
   api.scene('sys-fault', {
     lines: [
-      '@tnfault|In a T N system, if a live wire touches an earthed metal casing, there is a low resistance loop straight back to the transformer. Hundreds of amperes flow, and the breaker trips at once.',
+      '@tnfault|In a TN system, if a live wire touches an earthed metal casing, there is a low resistance loop straight back to the transformer. Hundreds of amperes flow, and the breaker trips at once.',
       '@itfault|In an I T system, the same fault has no return path. Only a small capacitive current flows. Nothing burns, nothing trips, and the lights stay on. The fault simply ties that line to earth, and the other two rise to two hundred and thirty volts above ground.',
       "@second|The danger is the second fault. A fault on a different line, perhaps in your neighbour's house, now creates a short circuit through the earth itself.",
       '@rcd|That is why earth fault protection matters so much in Norway. We will open one up shortly.',
@@ -193,8 +193,8 @@ module.exports = api => {
           ground(g, GND, 1, x0 + 30, x0 + panelW - 30);
           const xa = x0 + 80, xb = x0 + 210, xe = x0 + panelW - 40;
           g.line([[xa, ys[0]], [xa, ys[2]]], { c: C.steel, w: 4 });
-          const trip = !isIT && s.since('tnfault') > 9.4;
-          const second = isIT && s.since('second') > 3.2, trip2 = isIT && s.since('second') > 8.4;
+          const trip = !isIT && s.sinceE('tnfault') > 9.4;
+          const second = isIT && s.sinceE('second') > 3.2, trip2 = isIT && s.sinceE('second') > 8.4;
           const dead = trip || trip2;
           ys.forEach((y, k) => { coilH(g, xa, y, xb, PH[k], { w: 4 }); g.wire([[xb, y], [xe, y]], { c: PH[k], w: 4, on: dead ? 0.1 : 1, flow: !dead, t, off: -Math.cos(t * 2.4 - k * TAU / 3) * 50, gap: 60 }); g.text('L' + (k + 1), xb + 20, y - 20, { s: 20, wt: 800, c: PH[k] }); });
           if (!isIT) { g.line([[xa, ys[2]], [xa, yN]], { c: C.n, w: 4 }); g.line([[xa, yN], [xe, yN]], { c: C.n, w: 4 }); g.text('PEN', xb + 20, yN - 20, { s: 20, wt: 800, c: C.n }); g.line([[xa, yN], [xa, GND - 24]], { c: C.pe, w: 4 }); earthSym(g, xa, GND); }
@@ -242,7 +242,7 @@ module.exports = api => {
     lines: [
       '@cons|The practical consequences are everywhere. Because both conductors are live, Norwegian circuit breakers are two pole. They disconnect both wires at once.',
       '@pwr|And for the same current, a lower voltage means less power. With a sixty three ampere main fuse, three-phase two hundred and thirty volts gives you twenty five kilowatts. Three-phase four hundred gives nearly forty four.',
-      '@tt|There is also a third variant, T T, found in parts of western and southern Norway. From inside the house it looks just like I T: two hundred and thirty volts between lines, and no neutral. But the star point of the transformer is earthed.',
+      '@tt|There is also a third variant, TT, found in parts of western and southern Norway. From inside the house it looks just like I T: two hundred and thirty volts between lines, and no neutral. But the star point of the transformer is earthed.',
       '@check|Which system you have is the first thing an electrician checks, because it decides how everything downstream must be built.',
     ],
     draw(g, s) {
@@ -253,7 +253,7 @@ module.exports = api => {
       P.panel(g, 90, 210, 800, 360, bp);
       g.alpha(bp, () => {
         g.text('TWO-POLE BREAKERS', 120, 250, { s: 20, c: C.l1, wt: 700, ls: 3 });
-        const open = pr((t - s.at('cons', 6.4)) % 5, 0, 0.25, E.o) * (s.since('cons') > 6.4 ? 1 : 0) * (((t - s.at('cons', 6.4)) % 5) < 2.6 ? 1 : 0);
+        const open = pr((t - s.at('cons', 6.4)) % 5, 0, 0.25, E.o) * (s.sinceE('cons') > 6.4 ? 1 : 0) * (((t - s.at('cons', 6.4)) % 5) < 2.6 ? 1 : 0);
         [330, 450].forEach((y, k) => {
           const col = PH[k];
           g.wire([[130, y], [380, y]], { c: col, w: 5, flow: true, t, gap: 50, off: -Math.cos(t * 2.4 - k * Math.PI) * 40 });

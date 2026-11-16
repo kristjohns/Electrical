@@ -83,7 +83,7 @@ module.exports = api => {
   api.scene('bal-hvdc', {
     lines: [
       '@hvdc|And through high voltage direct current cables on the sea bed, Norway trades power with Denmark, the Netherlands, Germany and Great Britain.',
-      '@why|Direct current, because a long subsea cable behaves like a giant capacitor. With A C, most of the current would be spent just charging and discharging the cable itself.',
+      '@why|Direct current, because a long subsea cable behaves like a giant capacitor. With AC, most of the current would be spent just charging and discharging the cable itself.',
     ],
     draw(g, s) {
       const t = s.t;

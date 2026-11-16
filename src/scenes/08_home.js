@@ -54,7 +54,7 @@ module.exports = api => {
       '@cable|From the street, a service cable runs to your house, in the ground or through the air. Modern homes have a connection cabinet on the outside wall.',
       '@ov|First comes the main overload protection. It caps the current the whole house can draw. Sixty three amperes is typical for a modern detached house. Older homes often have twenty five to fifty.',
       '@meter|Then the meter. Since two thousand and nineteen, every Norwegian home has a smart meter. It samples voltage and current thousands of times per second, multiplies them, and adds it all up. Power, summed over time, is energy: kilowatt hours.',
-      '@han|It reports to the grid company automatically. And through a socket on the meter called the H A N port, you can read your own consumption, live.',
+      '@han|It reports to the grid company automatically. And through a socket on the meter called the [HAN](/ˈeɪtʃ ˈeɪ ˈɛn/) port, you can read your own consumption, live.',
       '@earth|And then the part nobody sees. An earth electrode, usually a bare copper wire buried around the foundation, is connected to the main earthing bar. From there, a protective earth conductor follows every circuit. Metal water pipes and other large metal parts are bonded to it as well, so that nothing you can touch can sit at a dangerous voltage.',
     ],
     draw(g, s) {
@@ -65,7 +65,7 @@ module.exports = api => {
       const cOld = {};
       g.alpha(1 - pan * 0.72, () => {
         P.sky(g, t, { aurora: 0.35 });
-        P.house(g, { ...HS, t, lamp: 1, lit: { lampKitchen: 1, cabinet: s.in('cable', 6.0, 0.6) * s.out('ov'), meter: 1, board: 0.3 }, show: { service: 1, serviceTrim: s.in('cable', 0.6, 3.6, E.io2), earth: earth > 0 ? 1 : 0, earthTrim: earth }, flowService: s.since('cable') > 4.2, circuits: pe > 0 ? Object.fromEntries(Object.keys(P.CIRCUITS).map(k => [k, { trim: pe, on: 0.2, a: 0.9 }])) : {} });
+        P.house(g, { ...HS, t, lamp: 1, lit: { lampKitchen: 1, cabinet: s.in('cable', 6.0, 0.6) * s.out('ov'), meter: 1, board: 0.3 }, show: { service: 1, serviceTrim: s.in('cable', 0.6, 3.6, E.io2), earth: earth > 0 ? 1 : 0, earthTrim: earth }, flowService: s.sinceE('cable') > 4.2, circuits: pe > 0 ? Object.fromEntries(Object.keys(P.CIRCUITS).map(k => [k, { trim: pe, on: 0.2, a: 0.9 }])) : {} });
         // PE overlay on circuits
         if (pe > 0) g.tf({ x: HS.x, y: HS.y, s: HS.s }, () => { for (const k in P.CIRCUITS) P.CIRCUITS[k].paths.forEach(pth => { if (plen(pth) > 1) g.line(pth.map(([x, y]) => [x + 3, y + 3]), { c: C.pe, w: 2.5, dash: [10, 7], cap: 'butt', trim: pe, round: 6 }); }); });
         // bonding
@@ -139,7 +139,7 @@ module.exports = api => {
   // ------------------------------------------------------------------ the board
   api.scene('home-board', {
     lines: [
-      '@heart|And now, the heart of the installation: the distribution board. In Norwegian, the [sikringsskap](/sˈɪkrɪŋskɑːp/). The fuse cabinet.',
+      '@heart|And now, the heart of the installation: the distribution board. In Norwegian, the [sikringsskap](/sˈɪkɾɪŋskɑːp/). The fuse cabinet.',
       '@job|Its job is to split the supply into separate circuits, and to protect each one of them.',
       '@list|A modern board contains a main switch. Surge protection. An earthing bar. And for every circuit, a device that protects against overload, short circuit, and earth fault, all combined in a single unit.',
       "@three|Three different faults, detected by three different physical principles. Let's take them apart, one at a time.",
@@ -173,4 +173,4 @@ module.exports = api => {
     },
   });
 };
-module.exports.board = board; module.exports.HS = HS;
+module.exports.board = board; module.exports.HS = HS; module.exports.module_ = module_;

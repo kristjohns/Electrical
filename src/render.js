@@ -35,6 +35,10 @@ async function main() {
     fs.writeFileSync(path.join(TL.ROOT, 'out', 'subtitles.en.srt'), srt);
     const ch = tl.scenes.filter(s => s.card).map(s => `${fmt(s.t0).replace(/\.\d$/, '').padStart(5, '0')} ${s.chapter}`);
     fs.writeFileSync(path.join(TL.ROOT, 'out', 'chapters.txt'), ['00:00 Intro', ...ch].join('\n') + '\n');
+    const chs = [{ t: 0, name: 'Intro' }, ...tl.scenes.filter(s => s.card).map(s => ({ t: s.t0, name: s.chapter }))];
+    let meta = ';FFMETADATA1\ntitle=From Waterfall to Wall Socket\n';
+    chs.forEach((c, i) => { meta += `[CHAPTER]\nTIMEBASE=1/1000\nSTART=${Math.round(c.t * 1000)}\nEND=${Math.round((i + 1 < chs.length ? chs[i + 1].t : tl.total) * 1000)}\ntitle=${c.name}\n`; });
+    fs.writeFileSync(path.join(TL.ROOT, 'build', 'chapters.ffmeta'), meta);
     console.log('cues written, total', fmt(tl.total));
   } else if (cmd === 'frame') {
     const cv = createCanvas(W, H), ctx = cv.getContext('2d');

@@ -123,7 +123,7 @@ class G {
     if (o.dash) { c.setLineDash(o.dash); c.lineDashOffset = o.off || 0; }
     if (o.fill) { c.globalAlpha *= a * (o.fa === undefined ? 1 : o.fa); c.fillStyle = o.fill; build(); c.fill(); c.globalAlpha /= (a * (o.fa === undefined ? 1 : o.fa)) || 1; }
     if (w > 0 && !o.nostroke) {
-      if (o.glow) {
+      if (o.glow && typeof col === 'string') {
         const gl = o.glow === true ? 1 : o.glow;
         c.globalCompositeOperation = 'lighter';
         c.strokeStyle = rgba(col, 0.10 * a * gl); c.lineWidth = w + 18; build(); c.stroke();
