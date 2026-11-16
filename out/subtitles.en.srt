@@ -1,0 +1,616 @@
+1
+00:00:00,700 --> 00:00:03,725
+You flip a switch, and the light comes on. Instantly.
+
+2
+00:00:03,995 --> 00:00:07,974
+But behind that switch is the largest machine humans have ever built.
+
+3
+00:00:08,244 --> 00:00:17,803
+A single, synchronised system that reaches from a mountain reservoir, through hundreds of kilometres of power lines, down your street, and into the walls of your home.
+
+4
+00:00:18,073 --> 00:00:27,114
+In this video, we follow the energy the whole way. Then we open up a Norwegian home, to see what every component in the fuse box actually does.
+
+5
+00:00:33,664 --> 00:00:40,602
+Let's start by translating electricity into a language every mechanical engineer already speaks: hydraulics.
+
+6
+00:00:40,872 --> 00:00:43,827
+Voltage is pressure difference. It is what pushes.
+
+7
+00:00:44,097 --> 00:00:47,842
+Current is flow rate. It is how much charge passes each second.
+
+8
+00:00:48,112 --> 00:00:58,663
+And resistance is a restriction in the pipe. For a given pressure, a tighter restriction means less flow. That is Ohm's law: voltage equals resistance times current.
+
+9
+00:00:58,933 --> 00:01:06,623
+Power follows the same pattern. Hydraulic power is pressure times flow. Electrical power is voltage times current.
+
+10
+00:01:06,893 --> 00:01:12,516
+So a two thousand watt heater, on two hundred and thirty volts, draws just under nine amperes.
+
+11
+00:01:12,786 --> 00:01:19,622
+Leave it on for an hour, and it has used two kilowatt hours of energy. That is the unit on your electricity bill.
+
+12
+00:01:21,072 --> 00:01:31,553
+The grid does not push in one direction. It uses alternating current. The voltage swings smoothly from positive to negative and back, fifty times every second.
+
+13
+00:01:31,823 --> 00:01:40,499
+When we say two hundred and thirty volts, we mean the effective value, the RMS. The actual peak is about three hundred and twenty five volts.
+
+14
+00:01:40,769 --> 00:01:46,953
+RMS is defined so that the heating power comes out the same as direct current at that voltage.
+
+15
+00:01:47,223 --> 00:02:02,662
+It also means the electrons in your wires hardly travel at all. They vibrate back and forth, less than a thousandth of a millimetre. What travels is energy, carried by the electromagnetic field around the wires, at a good fraction of the speed of light.
+
+16
+00:02:02,932 --> 00:02:11,687
+Why alternate at all? Because alternating current can be transformed. That single trick is what makes a national grid possible. We will get there.
+
+17
+00:02:13,137 --> 00:02:22,739
+Two more translations. An inductor, a coil, behaves like mass. It resists changes in current, the way inertia resists changes in velocity.
+
+18
+00:02:23,009 --> 00:02:27,421
+A capacitor behaves like a spring. It stores energy, and pushes back.
+
+19
+00:02:27,691 --> 00:02:38,545
+In an AC circuit, these elements push the current out of step with the voltage. Only the in-step part delivers net power. The ratio is called the power factor, cosine phi.
+
+20
+00:02:43,395 --> 00:02:53,094
+In Norway, the journey almost always begins with water. About ninety percent of all Norwegian electricity is hydropower. Most of the rest is wind.
+
+21
+00:02:53,364 --> 00:03:04,125
+More than seventeen hundred hydropower plants, and over a thousand reservoirs, act together as one gigantic rechargeable battery, charged by rain and melting snow.
+
+22
+00:03:04,395 --> 00:03:13,920
+The principle is beautifully simple. Store water high up. Let it fall through a pressure tunnel, the penstock. And extract its energy in a turbine at the bottom.
+
+23
+00:03:14,190 --> 00:03:19,646
+The power is efficiency, times density, times gravity, times flow rate, times height.
+
+24
+00:03:19,916 --> 00:03:35,071
+Take a head of five hundred metres, and a flow of twenty cubic metres per second. With an efficiency above ninety percent, that single unit delivers about ninety megawatts. Enough to cover the average consumption of roughly fifty thousand homes.
+
+25
+00:03:36,521 --> 00:03:38,733
+Which turbine you use depends on the head.
+
+26
+00:03:39,003 --> 00:03:49,452
+For very high heads, the Pelton wheel. Nozzles turn all the pressure into a free jet, moving at more than three hundred kilometres per hour, which strikes spoon shaped buckets.
+
+27
+00:03:49,722 --> 00:04:00,160
+For medium heads, the Francis turbine, the workhorse of Norwegian hydropower. Water spirals inwards through adjustable guide vanes, and leaves along the axis.
+
+28
+00:04:00,430 --> 00:04:08,368
+And for low heads with large flows, in river power plants, the Kaplan turbine. Essentially a ship's propeller running in reverse.
+
+29
+00:04:08,638 --> 00:04:17,182
+In every case, guide vanes or needle valves control the flow of water. That is the throttle of the power system, and we will come back to it.
+
+30
+00:04:22,032 --> 00:04:31,493
+The turbine shaft drives a synchronous generator. The rotor is an electromagnet, fed with direct current, so it carries a magnetic field around with it.
+
+31
+00:04:31,763 --> 00:04:44,732
+Faraday's law says: a changing magnetic flux through a coil induces a voltage. As the rotor sweeps past a stator coil, the flux through it rises, falls, and reverses. Out comes a sine wave.
+
+32
+00:04:45,002 --> 00:05:00,305
+Now place three coils around the stator, a hundred and twenty degrees apart. You get three voltages, identical, but each shifted by a third of a period. This is three-phase power. The three conductors are called L one, L two and L three.
+
+33
+00:05:00,575 --> 00:05:16,684
+The frequency is locked to the rotation. A two pole machine needs three thousand revolutions per minute to make fifty hertz. Hydro generators turn more slowly, so they have many poles. With twelve poles, five hundred RPM gives exactly fifty hertz.
+
+34
+00:05:18,134 --> 00:05:31,676
+Why three phases? Here is an argument engineers love. In a single-phase system, power pulsates. It drops to zero a hundred times a second. For a large machine, that means pulsating torque, and vibration.
+
+35
+00:05:31,946 --> 00:05:42,739
+With three balanced phases, the three pulsating powers add up to a perfectly constant total. Smooth torque on the generator shaft, and smooth torque in every three-phase motor.
+
+36
+00:05:43,009 --> 00:05:52,435
+And there is a bonus. The three currents sum to zero at every instant, so no return conductor is needed. Three wires carry what would otherwise take six.
+
+37
+00:05:53,885 --> 00:06:07,774
+Three-phase also gives you two voltages to choose from. Between any line and the common star point, the neutral, you measure the phase voltage. Between two lines, you measure more: the phase voltage times the square root of three.
+
+38
+00:06:08,044 --> 00:06:21,556
+That is why two hundred and thirty, and four hundred volts, always appear together. Four hundred is simply two hundred and thirty times root three. Keep this picture in mind. It is the key to understanding Norwegian homes.
+
+39
+00:06:26,406 --> 00:06:35,294
+The generator produces something like ten to twenty kilovolts. To send power across the country, we need to go far higher. Enter the transformer.
+
+40
+00:06:35,564 --> 00:06:48,266
+Two coils share one iron core. Alternating current in the first coil creates an alternating magnetic flux in the core. That flux induces a voltage in every single turn of the second coil.
+
+41
+00:06:48,536 --> 00:06:58,876
+So the voltage ratio is simply the turns ratio. Ten times more turns gives ten times more voltage. And because power is conserved, ten times less current.
+
+42
+00:06:59,146 --> 00:07:11,451
+It is a gearbox for electricity. It trades voltage against current, just as a gearbox trades speed against torque. And it is astonishingly efficient. Large units exceed ninety nine percent.
+
+43
+00:07:11,721 --> 00:07:18,874
+But it only works while the flux is changing. Feed it direct current, and nothing comes out. That is why the grid is AC.
+
+44
+00:07:20,324 --> 00:07:28,546
+Why go to such extremes? Because every conductor has resistance, and the heat loss in a line is current squared, times resistance.
+
+45
+00:07:28,816 --> 00:07:39,475
+The same power can be sent as a high current at low voltage, or a low current at high voltage. Imagine sending one hundred megawatts down a hundred kilometre line.
+
+46
+00:07:39,745 --> 00:07:48,123
+At twenty two kilovolts, that takes more than two and a half thousand amperes. Well over half the power would be lost, just heating the conductors.
+
+47
+00:07:48,393 --> 00:08:00,785
+At four hundred and twenty kilovolts, the current drops to about a hundred and forty amperes. Nineteen times less current means roughly three hundred and sixty times less loss. A fraction of one percent.
+
+48
+00:08:02,235 --> 00:08:12,174
+The Norwegian grid has three levels. At the top, the transmission grid: the motorways. Three hundred, and four hundred and twenty kilovolts, operated by Statnett.
+
+49
+00:08:12,444 --> 00:08:20,460
+Below it, the regional grid, typically sixty six and a hundred and thirty two kilovolts, linking the motorways to towns and industry.
+
+50
+00:08:20,730 --> 00:08:30,583
+And finally the distribution grid, usually twenty two or eleven kilovolts, run by your local grid company. It feeds the small substations in your neighbourhood.
+
+51
+00:08:30,853 --> 00:08:40,789
+At every step down there is a substation, with transformers, circuit breakers, and protection relays that can isolate a faulty line in less than a tenth of a second.
+
+52
+00:08:45,639 --> 00:08:55,039
+Here is the strangest property of the grid. It stores almost no energy. At every instant, generation must equal consumption. Exactly.
+
+53
+00:08:55,309 --> 00:09:10,138
+Every generator in Norway, Sweden, Finland and eastern Denmark is electromagnetically locked to all the others. They spin in step, like one enormous machine with a single shared speed. That speed is the frequency: fifty hertz.
+
+54
+00:09:10,408 --> 00:09:24,427
+Suppose a large factory switches on. No power plant has reacted yet. So where does the extra energy come from? From the kinetic energy of all those spinning rotors. They slow down, very slightly, and the frequency drops.
+
+55
+00:09:24,697 --> 00:09:33,119
+It is Newton's second law for rotation. Inertia, times angular acceleration, equals driving torque minus braking torque.
+
+56
+00:09:33,389 --> 00:09:49,222
+Turbine governors sense the falling speed, and within seconds they open the guide vanes. More water, more torque, and the frequency recovers. Hydropower is superb at this, which makes Norway's reservoirs so valuable for balancing the whole Nordic system.
+
+57
+00:09:49,492 --> 00:09:59,418
+Normally the frequency stays between forty nine point nine and fifty point one hertz. It is the heartbeat of the system, and you can measure it in any wall socket.
+
+58
+00:10:00,868 --> 00:10:09,295
+And through high voltage direct current cables on the sea bed, Norway trades power with Denmark, the Netherlands, Germany and Great Britain.
+
+59
+00:10:09,565 --> 00:10:20,279
+Direct current, because a long subsea cable behaves like a giant capacitor. With AC, most of the current would be spent just charging and discharging the cable itself.
+
+60
+00:10:25,129 --> 00:10:34,777
+The last transformer is closer than you think. Somewhere near your home stands a small kiosk, or a transformer up on a pole. In Norwegian: a nettstasjon.
+
+61
+00:10:35,047 --> 00:10:47,358
+Inside is a distribution transformer of a few hundred kilovolt amperes, sitting in an oil filled tank for cooling and insulation. It steps twenty two thousand volts down to the voltage in your sockets.
+
+62
+00:10:47,628 --> 00:10:57,217
+One such transformer feeds anything from a single farm, to a hundred homes or more, through low voltage cables in the ground, or lines on wooden poles.
+
+63
+00:10:57,487 --> 00:11:03,341
+But exactly what comes out of that transformer is where Norway differs from almost every other country.
+
+64
+00:11:08,191 --> 00:11:22,668
+Let's start with the European standard, called TN. The transformer's three secondary windings are connected in a star. The centre of the star, the neutral point, is connected solidly to earth, and brought out as a fourth conductor.
+
+65
+00:11:22,938 --> 00:11:33,047
+Each winding produces two hundred and thirty volts. So from any line to neutral, you get two hundred and thirty. From line to line, root three times more: four hundred.
+
+66
+00:11:33,317 --> 00:11:40,798
+Sockets and lights connect between one line and the neutral. Large loads can use all three lines, at four hundred volts.
+
+67
+00:11:41,068 --> 00:11:44,356
+This is what is built in new Norwegian developments today.
+
+68
+00:11:44,626 --> 00:11:57,150
+But most existing Norwegian homes are connected to something different: the I T system. Here, each winding produces a hundred and thirty three volts, so that line to line you measure two hundred and thirty.
+
+69
+00:11:57,420 --> 00:12:08,023
+There is no neutral conductor at all. And the star point is not connected to earth. The whole system floats, tied to earth only through the tiny stray capacitance of the cables.
+
+70
+00:12:08,293 --> 00:12:20,544
+So in an I T home, an ordinary socket is fed by two line conductors. Both pins are live. Neither is a neutral. Each sits at about a hundred and thirty three volts relative to earth.
+
+71
+00:12:20,814 --> 00:12:34,885
+Why did Norway choose this? Partly history, and partly geology. Norway is built on rock, where good earth connections are hard to make, and an isolated system does not depend on them. It also has a remarkable property.
+
+72
+00:12:36,335 --> 00:12:48,058
+In a TN system, if a live wire touches an earthed metal casing, there is a low resistance loop straight back to the transformer. Hundreds of amperes flow, and the breaker trips at once.
+
+73
+00:12:48,328 --> 00:13:05,035
+In an I T system, the same fault has no return path. Only a small capacitive current flows. No fuse blows, nothing burns, and the lights stay on. The fault simply ties that line to earth, and the other two rise to two hundred and thirty volts above ground.
+
+74
+00:13:05,305 --> 00:13:13,591
+The danger is the second fault. A fault on a different line, perhaps in your neighbour's house, now creates a short circuit through the earth itself.
+
+75
+00:13:13,861 --> 00:13:19,007
+That is why earth fault protection matters so much in Norway. We will open one up shortly.
+
+76
+00:13:20,457 --> 00:13:30,294
+The practical consequences are everywhere. Because both conductors are live, Norwegian circuit breakers are two pole. They disconnect both wires at once.
+
+77
+00:13:30,564 --> 00:13:43,876
+And for the same current, a lower voltage means less power. With a sixty three ampere main fuse, three-phase two hundred and thirty volts gives you twenty five kilowatts. Three-phase four hundred gives nearly forty four.
+
+78
+00:13:44,146 --> 00:13:59,134
+There is also a third variant, TT, found in parts of western and southern Norway. From inside the house it looks just like I T: two hundred and thirty volts between lines, and no neutral. But the star point of the transformer is earthed.
+
+79
+00:13:59,404 --> 00:14:06,133
+Which system you have is the first thing an electrician checks, because it decides how everything downstream must be built.
+
+80
+00:14:10,983 --> 00:14:19,664
+From the street, a service cable runs to your house, in the ground or through the air. Modern homes have a connection cabinet on the outside wall.
+
+81
+00:14:19,934 --> 00:14:32,402
+First comes the main overload protection. It caps the current the whole house can draw. Sixty three amperes is typical for a modern detached house. Older homes often have twenty five to fifty.
+
+82
+00:14:32,672 --> 00:14:48,280
+Then the meter. Since two thousand and nineteen, every Norwegian home has a smart meter. It samples voltage and current thousands of times per second, multiplies them, and adds it all up. Power, summed over time, is energy: kilowatt hours.
+
+83
+00:14:48,550 --> 00:14:57,241
+It reports to the grid company automatically. And through a socket on the meter called the HAN port, you can read your own consumption, live.
+
+84
+00:14:57,511 --> 00:15:18,932
+And then the part nobody sees. An earth electrode, usually a bare copper wire buried around the foundation, is connected to the main earthing bar. From there, a protective earth conductor follows every circuit. Metal water pipes and other large metal parts are bonded to it as well, so that nothing you can touch can sit at a dangerous voltage.
+
+85
+00:15:20,382 --> 00:15:27,328
+And now, the heart of the installation: the distribution board. In Norwegian, the sikringsskap. The fuse cabinet.
+
+86
+00:15:27,598 --> 00:15:32,637
+Its job is to split the supply into separate circuits, and to protect each one of them.
+
+87
+00:15:32,907 --> 00:15:45,865
+A modern board contains a main switch. Surge protection. An earthing bar. And for every circuit, a device that protects against overload, short circuit, and earth fault, all combined in a single unit.
+
+88
+00:15:46,135 --> 00:15:52,497
+Three different faults, detected by three different physical principles. Let's take them apart, one at a time.
+
+89
+00:15:57,347 --> 00:16:09,306
+This is a miniature circuit breaker, cut open. The current enters at one terminal, and has to pass through every one of these parts on its way out. A coil. A pair of contacts. And a bimetal strip.
+
+90
+00:16:09,576 --> 00:16:22,103
+First fault type: overload. Too many appliances on one circuit. Say, twenty five amperes on a sixteen ampere circuit. Nothing dramatic happens. But the cable in your wall slowly overheats.
+
+91
+00:16:22,373 --> 00:16:31,667
+The breaker mimics that heating with a bimetal strip: two metals with different thermal expansion, bonded together. The current heats the strip, and it bends.
+
+92
+00:16:31,937 --> 00:16:47,130
+The more current, the faster it bends. Eventually it pushes the trip bar. The latch lets go, and a spring snaps the contacts apart. A small overload takes minutes. A large one, seconds. It is a thermal model of the very cable it protects.
+
+93
+00:16:48,580 --> 00:17:02,805
+Second fault type: short circuit. Two conductors touch. Now the current is limited only by the resistance of the wiring itself, and can reach thousands of amperes within milliseconds. A bimetal is far too slow for that.
+
+94
+00:17:03,075 --> 00:17:15,666
+So the current also runs through a coil. At normal current, its magnetic pull is too weak to do anything. At a short circuit, the force, which grows with the square of the current, slams a plunger into the latch.
+
+95
+00:17:15,936 --> 00:17:25,730
+The contacts fly apart within a few milliseconds. But the current does not want to stop. It jumps the gap as an arc: a plasma at several thousand degrees.
+
+96
+00:17:26,000 --> 00:17:40,821
+The breaker's own magnetic field drives the arc into a stack of steel plates, the arc chute. There it is chopped into a dozen short arcs, cooled, and stretched, until it cannot sustain itself. All of it, in less than a hundredth of a second.
+
+97
+00:17:42,271 --> 00:17:52,565
+Put both mechanisms on one chart, and you get the breaker's characteristic curve. Current along the bottom, as a multiple of the rated current. Trip time up the side.
+
+98
+00:17:52,835 --> 00:17:59,406
+The sloping part is the bimetal: slower for small overloads. The vertical cliff is the magnetic release.
+
+99
+00:17:59,676 --> 00:18:12,984
+Type B trips magnetically at three to five times the rated current. That is the standard in homes. Type C waits until five to ten times, and is used for loads with a large inrush current, such as motors.
+
+100
+00:18:13,254 --> 00:18:29,630
+And the rating itself? It is chosen to protect the cable, not the appliance. One and a half square millimetres of copper: ten or thirteen amperes. Two and a half: sixteen. Six square millimetres for a thirty two ampere car charger. The weakest link sets the fuse.
+
+101
+00:18:34,480 --> 00:18:44,350
+The third fault type is the one that kills people. An earth fault. Current leaking out of the circuit, through damaged insulation, a wet appliance, or a human body.
+
+102
+00:18:44,620 --> 00:18:55,921
+The amounts involved are tiny. Far too small for a fuse to notice. A sixteen ampere breaker will happily pass a current three hundred times smaller than its rating, straight through your chest.
+
+103
+00:18:56,191 --> 00:19:12,949
+The residual current device solves this with a beautifully simple idea. Both conductors of the circuit pass through an iron ring. Whatever goes out through one, must come back through the other. Their magnetic fields cancel exactly, and the ring stays magnetically silent.
+
+104
+00:19:13,219 --> 00:19:26,373
+But if some of the current escapes to earth, the outgoing and returning currents no longer match. The difference magnetises the ring. A sense winding picks it up, and trips a sensitive relay that releases the contacts.
+
+105
+00:19:26,643 --> 00:19:37,081
+In homes, the threshold is thirty milliamperes, and the device must disconnect within a few hundredths of a second. Fast enough that most people survive a direct contact.
+
+106
+00:19:38,531 --> 00:19:51,148
+To put numbers on it. Around one milliampere, you feel a tingle. Above ten, your muscles can lock, and you cannot let go. From about fifty milliamperes across the chest, the heart can go into fibrillation.
+
+107
+00:19:51,418 --> 00:20:03,034
+The human body is roughly one to two thousand ohms. At two hundred and thirty volts, that means well over a hundred milliamperes. Without protection, mains voltage is easily lethal.
+
+108
+00:20:03,304 --> 00:20:19,959
+These devices come in types. Type A detects alternating and pulsating fault currents, and is the household standard. Type B also detects smooth direct current leakage, which electronics such as car chargers can produce, and which can blind a type A device.
+
+109
+00:20:20,229 --> 00:20:30,845
+Every device has a test button. It routes a small current around the ring, creating a deliberate imbalance. Press it a couple of times a year. If it does not trip, call an electrician.
+
+110
+00:20:32,295 --> 00:20:55,515
+Three more devices deserve a mention. Surge protection, required in new Norwegian homes since two thousand and ten. Its heart is a varistor: a component that is practically an insulator at normal voltage, but turns into a conductor above a threshold. When lightning, or switching in the grid, sends a voltage spike down the line, it shunts the surge to earth within nanoseconds.
+
+111
+00:20:55,785 --> 00:21:10,260
+Arc fault detection. A loose terminal can spark quietly for months, at a current too low to trip anything, until one day it starts a fire. An arc fault device listens for the high frequency signature of that sparking, and disconnects.
+
+112
+00:21:10,530 --> 00:21:24,432
+And if you live in an older house, you may still have screw in fuses. A thin wire, in a ceramic body filled with sand. Too much current melts the wire, and the sand quenches the arc. Simple and reliable. But use once only.
+
+113
+00:21:29,282 --> 00:21:36,136
+From the board, the house is divided into circuits. Each has its own breaker, its own cable, and a limited job.
+
+114
+00:21:36,406 --> 00:21:41,100
+Lighting circuits: typically ten amperes, on one and a half square millimetre cable.
+
+115
+00:21:41,370 --> 00:21:52,860
+General socket circuits: sixteen amperes, on two and a half square. That is about three thousand seven hundred watts per circuit. A kettle and a panel heater together, and you are at the limit.
+
+116
+00:21:53,130 --> 00:22:04,507
+Then the dedicated circuits. The cooker. The water heater. The bathroom floor. The heat pump. And increasingly, the largest of them all: a thirty two ampere circuit for the car charger.
+
+117
+00:22:04,777 --> 00:22:09,168
+Kitchens get several circuits of their own, because that is where the kilowatts are.
+
+118
+00:22:10,618 --> 00:22:25,146
+Why these combinations? Because copper has resistance. A two and a half square millimetre conductor has about seven milliohms per metre. At sixteen amperes, each conductor turns almost two watts per metre into heat, inside your wall.
+
+119
+00:22:25,416 --> 00:22:44,468
+PVC insulation is rated for seventy degrees. Bury that cable in thick insulation, as in a modern Norwegian wall, and it cannot get rid of the heat as easily. So the allowed current goes down. That is why the same cable may be fused at thirteen amperes in one wall, and sixteen in another.
+
+120
+00:22:44,738 --> 00:22:57,038
+Resistance also costs voltage. Twenty metres of that cable, at full load, loses nearly five volts along the way. For a long run to a garage, or to a car charger, you go up a size.
+
+121
+00:22:58,488 --> 00:23:11,384
+At the end of the circuit: the socket. Norway uses the Schuko type. Two round pins carry the power, and two spring clips at the edge carry the protective earth. The earth clips make contact first, and break last.
+
+122
+00:23:11,654 --> 00:23:27,875
+If a fault makes a metal casing live, the earth wire gives the current a path that is not you, and the protection trips. Since the late nineties, sockets in new installations must be earthed. In older homes you will still find unearthed sockets in living rooms and bedrooms.
+
+123
+00:23:28,145 --> 00:23:40,470
+Inside the cable, protective earth is always yellow and green. In a TN system, the neutral is blue. In an I T system there is no neutral, so the blue wire is simply a second live conductor.
+
+124
+00:23:40,740 --> 00:23:49,619
+And because a Schuko plug fits either way round, appliances are built to be safe whichever pin is live. Which, in I T, is both of them.
+
+125
+00:23:54,469 --> 00:24:08,624
+So what is all this power used for? In Norway, above all: heat. A typical Norwegian household uses around sixteen thousand kilowatt hours a year, several times the European average, because most heating is electric.
+
+126
+00:24:08,894 --> 00:24:27,086
+The simplest load of all is a resistor. A panel heater. A floor heating cable. The element in a water heater. Power is voltage squared, divided by resistance, and all of it becomes heat. One hundred percent efficient, and controlled by a thermostat that simply switches it on and off.
+
+127
+00:24:27,356 --> 00:24:44,255
+The water heater is the unsung hero. Two hundred litres, a two kilowatt element, and a thermostat set to about seventy degrees. Heating a full tank from cold takes roughly fifteen kilowatt hours. That makes it a thermal battery, about the size of a home battery pack.
+
+128
+00:24:44,525 --> 00:24:56,471
+Because it draws full power for hours on end, a water heater above fifteen hundred watts must now be permanently wired, not plugged into a socket. Plugs and sockets are a classic hot spot.
+
+129
+00:24:57,921 --> 00:25:04,471
+A heat pump does better than one hundred percent, without breaking any laws. It does not make heat. It moves it.
+
+130
+00:25:04,741 --> 00:25:20,368
+A compressor raises the pressure and temperature of a refrigerant. Indoors, it condenses, and gives off heat. Through an expansion valve, pressure and temperature drop. Outdoors, it evaporates, absorbing heat from air that may be well below freezing.
+
+131
+00:25:20,638 --> 00:25:29,937
+For every kilowatt of electricity into the compressor, three or four kilowatts of heat arrive in the living room. That ratio is the coefficient of performance.
+
+132
+00:25:30,207 --> 00:25:44,867
+Electrically, a modern heat pump is an inverter. It rectifies the mains to direct current, then synthesises a new three-phase alternating current, at whatever frequency it likes, to run the compressor at exactly the speed the house needs.
+
+133
+00:25:46,317 --> 00:26:06,397
+The induction hob is a transformer in which your pan is the secondary winding. A coil under the glass carries current at twenty to a hundred kilohertz. The rapidly changing field induces eddy currents in the steel base of the pan, and the resistance of the pan itself turns them into heat. The glass is only warmed by the pan.
+
+134
+00:26:06,667 --> 00:26:28,813
+Almost everything else in the house, the lights, the television, the phone charger, runs on low voltage direct current. Each has a small switching power supply. It rectifies the mains, then chops it at high frequency, so that the transformer inside can be tiny. Remember: a transformer needs a changing flux. The faster the change, the less iron it needs.
+
+135
+00:26:29,083 --> 00:26:43,230
+One Norwegian speciality: the stove guard. A sensor above the hob watches the temperature, and cuts the power before a forgotten pan becomes a fire. It has been mandatory in new kitchens since two thousand and ten.
+
+136
+00:26:44,680 --> 00:26:52,712
+And then the newest big load. More than nine out of ten new cars sold in Norway are electric, and most of them are charged at home.
+
+137
+00:26:52,982 --> 00:27:13,773
+The box on the wall is not really a charger. The charger sits inside the car, converting alternating current to direct current for the battery. The wall box is a smart safety switch. Before closing its contactor, it checks the earth connection, and it tells the car how much current it may draw, using a simple pulse width signal on a pilot wire.
+
+138
+00:27:14,043 --> 00:27:29,387
+On a two hundred and thirty volt I T supply, most cars charge single-phase. Thirty two amperes gives seven point four kilowatts. On a four hundred volt TN supply, the same car can use three phases, and reach eleven, or twenty two.
+
+139
+00:27:29,657 --> 00:27:40,909
+A car charging at seven kilowatts is like running three ovens, all night. So modern chargers measure the total load of the house, and throttle themselves to stay below the main fuse.
+
+140
+00:27:45,759 --> 00:27:58,215
+Put it all together over twenty four hours, and a household looks like this. A morning peak: showers, breakfast, heating. And an afternoon peak: cooking, laundry, and the car plugged in the moment you come home.
+
+141
+00:27:58,485 --> 00:28:12,723
+Every cable and transformer back up the chain has to be sized for that peak, not for the average. So since two thousand and twenty two, the Norwegian grid tariff includes a capacity charge, based on your highest hourly peaks each month.
+
+142
+00:28:12,993 --> 00:28:29,527
+Move the car charging into the night, and the water heating to the middle of the day, and the peak drops dramatically. Same energy, same comfort, and a much smaller footprint on the grid. This is what smart energy controllers do automatically, using live data from the meter.
+
+143
+00:28:34,377 --> 00:28:51,372
+A final word on safety. In Norway, work on the fixed installation must be done by a registered electrician, who has to hand you a declaration of conformity afterwards. The technical standard is called N E K four hundred, and the authority is DSB.
+
+144
+00:28:51,642 --> 00:28:57,815
+You may do small things yourself. Replace a plug. Connect a lamp. Change a cover plate. Not much more.
+
+145
+00:28:58,085 --> 00:29:15,366
+What you can do, is watch for warning signs. A fuse or a socket that feels warm. Discoloured plastic. A burning smell. Breakers that trip again and again. These almost always mean loose connections, or overloaded circuits. And that is how electrical fires begin.
+
+146
+00:29:15,636 --> 00:29:27,899
+So: do not run heaters on extension leads. Test the earth fault breaker. And if your board still has screw fuses and no earth fault protection, an upgrade is some of the best money you can spend on your home.
+
+147
+00:29:32,749 --> 00:29:36,125
+So, the next time you flip that switch, picture the whole chain.
+
+148
+00:29:36,395 --> 00:29:38,208
+Water, falling through a mountain.
+
+149
+00:29:38,478 --> 00:29:41,280
+A turbine, turning a magnet past three coils.
+
+150
+00:29:41,550 --> 00:29:46,081
+A transformer, lifting the voltage to four hundred and twenty thousand volts.
+
+151
+00:29:46,351 --> 00:29:51,902
+Pylons across the high plateau, and substation after substation, stepping it back down.
+
+152
+00:29:52,172 --> 00:30:00,241
+A kiosk on your street. A meter. A breaker, with a bimetal strip and a coil. An iron ring, watching for thirty milliamperes.
+
+153
+00:30:00,511 --> 00:30:07,304
+And all of it spinning in step, fifty times a second, balanced so precisely that your light comes on. Instantly.
+
+154
+00:30:07,574 --> 00:30:11,526
+The largest machine ever built. And you own the last few metres of it.
+

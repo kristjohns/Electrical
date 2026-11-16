@@ -5,7 +5,10 @@ hydropower reservoir to the wall socket, with the main focus on what happens ins
 It is written for a mechanical engineer: the basics are explained, with hydraulic and mechanical analogies,
 and the depth then goes to trip curves, summation current transformers and IT/TN earthing systems.
 
-* `out/from-waterfall-to-wall-socket.mp4` – the video (English narration, soft subtitles, chapter markers)
+![Poster](out/poster.png)
+
+* `out/from-waterfall-to-wall-socket-720p.mp4` – the video, 720p / 30 fps copy kept in the repository (English narration, soft subtitles, chapter markers)
+* `out/from-waterfall-to-wall-socket.mp4` – the 1080p / 60 fps master. It is larger than GitHub's 100 MB file limit, so it is not committed; `tools/build.sh` regenerates it.
 * `out/subtitles.en.srt` – subtitles
 * `out/chapters.txt` – chapter time codes
 

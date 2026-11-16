@@ -177,7 +177,7 @@ module.exports = api => {
   api.scene('sys-fault', {
     lines: [
       '@tnfault|In a TN system, if a live wire touches an earthed metal casing, there is a low resistance loop straight back to the transformer. Hundreds of amperes flow, and the breaker trips at once.',
-      '@itfault|In an I T system, the same fault has no return path. Only a small capacitive current flows. Nothing burns, nothing trips, and the lights stay on. The fault simply ties that line to earth, and the other two rise to two hundred and thirty volts above ground.',
+      '@itfault|In an I T system, the same fault has no return path. Only a small capacitive current flows. No fuse blows, nothing burns, and the lights stay on. The fault simply ties that line to earth, and the other two rise to two hundred and thirty volts above ground.',
       "@second|The danger is the second fault. A fault on a different line, perhaps in your neighbour's house, now creates a short circuit through the earth itself.",
       '@rcd|That is why earth fault protection matters so much in Norway. We will open one up shortly.',
     ],
@@ -219,7 +219,7 @@ module.exports = api => {
           if (isIT && fp > 0 && !second) {
             const lp = [[ax - 20, ys[0]], [ax - 20, ay - 60], [ax, ay], [ax, GND], [x0 + 400, GND], [x0 + 400, ys[2]]];
             g.flow(lp, { c: C.warn, w: 5, gap: 70, speed: 60, t, a: fp * 0.9 });
-            g.tag('a few milliamperes, through the stray capacitance', x0 + 430, 905, { s: 22, c: C.warn, p: s.in(key, 3.6) });
+            g.tag('only a small current, through the stray capacitance', x0 + 430, 905, { s: 22, c: C.warn, p: s.in(key, 3.6) });
             const vp = s.in(key, 13.0, 0.7);
             g.tag('L1: 0 V to earth', x0 + 700, 300, { s: 20, c: PH[0], f: 'mono', p: vp }); g.tag('L2: 230 V to earth', x0 + 700, 368, { s: 20, c: PH[1], f: 'mono', p: vp }); g.tag('L3: 230 V to earth', x0 + 700, 436, { s: 20, c: PH[2], f: 'mono', p: vp });
             g.text('lights stay on', x0 + 60, 650, { s: 28, wt: 700, c: C.ok, p: s.in(key, 7.2) });

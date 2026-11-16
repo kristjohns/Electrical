@@ -44,6 +44,7 @@ module.exports = api => {
         g.line(top, { c: '#fff', w: 3, trim: sweep, glow: 0.7 });
         if (sweep > 0 && sweep < 1) { g.line([[X(hMax), y0], [X(hMax), Y(kwMax)]], { c: rgba('#fff', 0.5), w: 2 }); g.glowDot(X(hMax), Y(total(hMax, m)), 22, '#fff', 1); }
         g.line([[x0, y0], [x1, y0]], { c: C.dim, w: 2 }); g.line([[x0, y0], [x0, Y(kwMax)]], { c: C.dim, w: 2 });
+        g.text('a cold winter day  ·  detached house with an electric car', (x0 + x1) / 2, 968, { s: 19, c: C.dim, al: 'c' });
         // legend
         comp.forEach(([name, col], i) => { const lx = 230 + i * 300; g.rect(lx, 914, 26, 26, { r: 5, fill: col, w: 0 }); g.text(name, lx + 38, 928, { s: 21, c: C.ink }); });
       });
@@ -57,7 +58,7 @@ module.exports = api => {
       [[2, '0 – 2 kW'], [5, '2 – 5 kW'], [10, '5 – 10 kW'], [15, '10 – 15 kW']].forEach(([kw, lab], i) => { const act = pk <= kw && pk > [0, 2, 5, 10][i]; g.rect(x1 + 8, Y(kw), 18, Y([0, 2, 5, 10][i]) - Y(kw) - 3, { r: 4, fill: rgba(act ? C.warn : C.faint, act ? 0.9 : 0.4), w: 0, a: cs }); g.text(lab, x1 - 6, (Y(kw) + Y([0, 2, 5, 10][i])) / 2, { s: 17, f: 'mono', c: act ? C.warn : C.dim, al: 'r', a: cs * (act ? 1 : 0.6), shadow: 6 }); });
       g.text('capacity step', x1 + 30, Y(15) - 24, { s: 17, c: C.warn, al: 'r', a: cs }); g.text('kapasitetsledd', x1 + 30, Y(15) - 46, { s: 16, c: C.dim, al: 'r', it: true, a: cs });
       const av = s.in('grid', 1.6, 0.7) * s.out('shift', 0);
-      const avg = 106 / 24; g.line([[x0, Y(avg)], [x1, Y(avg)]], { c: C.l2, w: 2.5, dash: [4, 8], a: av }); g.tag('average  ' + avg.toFixed(1) + ' kW', X(3), Y(avg) - 26, { s: 22, c: C.l2, f: 'mono', p: av, bg: rgba('#0a1124', 0.92) });
+      let avg = 0; for (let h = 0.05; h < 24; h += 0.1) avg += total(h, 0) / 240; g.line([[x0, Y(avg)], [x1, Y(avg)]], { c: C.l2, w: 2.5, dash: [4, 8], a: av }); g.tag('average  ' + avg.toFixed(1) + ' kW', X(3), Y(avg) - 26, { s: 22, c: C.l2, f: 'mono', p: av, bg: rgba('#0a1124', 0.92) });
       g.text('same energy  ·  half the peak', (x0 + x1) / 2, 270, { s: 38, wt: 700, al: 'c', c: C.ok, p: s.in('shift', 8.2, 0.8, E.o), shadow: 16 });
     },
   });

@@ -24,20 +24,21 @@ module.exports = api => {
       P.heading(g, 'Generation = consumption, every instant', s.p(0.3, 0.8, E.o));
       // frequency model
       const tE = s.at('kettle', 2.4), tG = s.at('gov', 2.2), tB = s.at('band', 0.5);
+      const DROP = 0.085;
       const fAt = tt => {
-        if (tt < tE) return 50 + 0.006 * Math.sin(tt * 1.3) + 0.004 * Math.sin(tt * 3.1);
-        const drop = 0.26 * (1 - Math.exp(-(tt - tE) / 4.2));
-        if (tt < tG) return 50 - drop + 0.004 * Math.sin(tt * 3.1);
-        const fG = 50 - 0.26 * (1 - Math.exp(-(tG - tE) / 4.2));
-        const rec = fG + (49.99 - fG) * (1 - Math.exp(-(tt - tG) / 3.2));
-        return rec + 0.006 * Math.sin(tt * 1.3) * clamp((tt - tG) / 8);
+        if (tt < tE) return 50 + 0.004 * Math.sin(tt * 1.3) + 0.003 * Math.sin(tt * 3.1);
+        const drop = DROP * (1 - Math.exp(-(tt - tE) / 4.2));
+        if (tt < tG) return 50 - drop + 0.003 * Math.sin(tt * 3.1);
+        const fG = 50 - DROP * (1 - Math.exp(-(tG - tE) / 4.2));
+        const rec = fG + (49.995 - fG) * (1 - Math.exp(-(tt - tG) / 3.2));
+        return rec + 0.004 * Math.sin(tt * 1.3) * clamp((tt - tG) / 8);
       };
       const f = fAt(t);
-      const dG = t - tG, load = 50 + 1.2 * pr(t, tE, 0.5, E.o), gen = 50 + (dG > 0 ? 1.2 * (1 - Math.exp(-dG / 1.1)) + 0.5 * (dG / 2.4) * Math.exp(1 - dG / 2.4) : 0);
+      const dG = t - tG, load = 50 + 0.4 * pr(t, tE, 0.5, E.o), gen = 50 + (dG > 0 ? 0.4 * (1 - Math.exp(-dG / 1.1)) + 0.17 * (dG / 2.4) * Math.exp(1 - dG / 2.4) : 0);
       // ---- left: the synchronised machines
       const na = s.in('nostore', 1.2, 0.9, E.o);
       const nodes = [[250, 420, 'Norway', 74], [520, 520, 'Sweden', 74], [770, 400, 'Finland', 58], [430, 760, 'E. Denmark', 46]];
-      const ang = t * 2.4 + (f - 50) * 30;
+      const ang = t * 2.4 + (f - 50) * 60;
       P.panel(g, 90, 220, 800, 650, na);
       g.alpha(na, () => {
         g.text('THE NORDIC SYNCHRONOUS AREA', 120, 258, { s: 20, c: C.l2, wt: 700, ls: 3 });
@@ -49,24 +50,24 @@ module.exports = api => {
       const ba = s.in('nostore', 3.0, 0.9, E.o);
       P.panel(g, 930, 220, 900, 300, ba);
       g.alpha(ba, () => {
-        const bar = (y, label, v, col) => { g.text(label, 960, y, { s: 24, wt: 600, c: col }); g.rect(1160, y - 20, 560, 40, { r: 8, c: C.line, w: 2 }); g.rect(1160, y - 20, 560 * clamp((v - 46) / 6), 40, { r: 8, fill: rgba(col, 0.85), w: 0, c: col, glow: 0.4 }); g.text(v.toFixed(1) + ' GW', 1810, y, { s: 24, f: 'mono', wt: 700, al: 'r', c: col }); };
+        const bar = (y, label, v, col) => { g.text(label, 960, y, { s: 24, wt: 600, c: col }); g.rect(1160, y - 20, 560, 40, { r: 8, c: C.line, w: 2 }); g.rect(1160, y - 20, 560 * clamp((v - 48.6) / 2.2), 40, { r: 8, fill: rgba(col, 0.85), w: 0, c: col, glow: 0.4 }); g.text(v.toFixed(1) + ' GW', 1810, y, { s: 24, f: 'mono', wt: 700, al: 'r', c: col }); };
         bar(290, 'Generation', gen, C.ok); bar(360, 'Consumption', load, C.l3);
-        const diff = gen - load, bal = Math.abs(diff) < 0.08;
-        g.text(bal ? 'in balance' : diff < 0 ? 'deficit  ' + Math.abs(diff).toFixed(1) + ' GW  →  taken from the rotating masses' : 'surplus  ' + diff.toFixed(1) + ' GW  →  the rotors speed up again', 960, 450, { s: 26, wt: 700, c: bal ? C.ok : diff < 0 ? C.bad : C.warn });
+        const diff = gen - load, bal = Math.abs(diff) < 0.03;
+        g.text(bal ? 'in balance' : diff < 0 ? 'deficit  ' + Math.round(Math.abs(diff) * 1000) + ' MW  →  taken from the rotating masses' : 'surplus  ' + Math.round(diff * 1000) + ' MW  →  the rotors speed up again', 960, 450, { s: 26, wt: 700, c: bal ? C.ok : diff < 0 ? C.bad : C.warn });
       });
       const fa = s.in('sync', 12.2, 0.9, E.o);
       P.panel(g, 930, 550, 900, 320, fa);
       g.alpha(fa, () => {
         g.text('GRID FREQUENCY', 960, 588, { s: 20, c: C.warn, wt: 700, ls: 3 });
-        g.text(f.toFixed(2), 960, 700, { s: 100, f: 'mono', wt: 800, c: Math.abs(f - 50) < 0.1 ? C.ok : C.warn });
+        g.text(f.toFixed(2), 960, 700, { s: 100, f: 'mono', wt: 800, c: Math.abs(f - 50) < 0.05 ? C.ok : C.warn });
         g.text('Hz', 1280, 722, { s: 40, wt: 700, c: C.dim });
         // strip chart: last 24 s
-        const cx = 1450, cy = 610, cw = 330, ch = 230, yOf = v => cy + ch / 2 - (v - 50) / 0.36 * ch / 2;
+        const cx = 1450, cy = 610, cw = 330, ch = 230, yOf = v => cy + ch / 2 - (v - 50) / 0.15 * ch / 2;
         const bp = s.in('band', 0.4, 0.8);
         g.rect(cx, yOf(50.1), cw, yOf(49.9) - yOf(50.1), { fill: rgba(C.ok, 0.13 * bp), w: 0 });
         g.line([[cx, yOf(50)], [cx + cw, yOf(50)]], { c: C.faint, w: 1.5, dash: [6, 6] });
-        g.text('50.0', cx - 8, yOf(50), { s: 16, f: 'mono', c: C.dim, al: 'r' }); g.text('49.8', cx - 8, yOf(49.8), { s: 16, f: 'mono', c: C.dim, al: 'r' });
-        g.text('50.1', cx + cw + 6, yOf(50.1), { s: 15, f: 'mono', c: C.ok, a: bp }); g.text('49.9', cx + cw + 6, yOf(49.9), { s: 15, f: 'mono', c: C.ok, a: bp });
+        g.text('50.0', cx - 8, yOf(50), { s: 16, f: 'mono', c: C.dim, al: 'r' }); g.text('49.9', cx - 8, yOf(49.9), { s: 16, f: 'mono', c: C.dim, al: 'r' });
+        g.text('50.1', cx - 8, yOf(50.1), { s: 16, f: 'mono', c: C.dim, al: 'r' });
         const pts = sample(u => { const tt = t - 26 * (1 - u); return [cx + u * cw, yOf(tt < 0 ? 50 : fAt(tt))]; }, 0, 1, 120);
         g.line(pts, { c: C.warn, w: 3.5, glow: 0.8 }); g.glowDot(cx + cw, yOf(f), 16, C.warn, 1);
       });
@@ -76,7 +77,7 @@ module.exports = api => {
       g.tag('normal band  49.9 – 50.1 Hz', 1380, 940, { s: 26, c: C.ok, p: s.in('band', 0.4, 0.8, E.o) });
       // factory switch-on flash
       const fl = clamp(1 - Math.abs(t - tE - 0.3) / 0.9);
-      g.tag('+ 1.2 GW load', 1570, 410, { s: 22, c: C.l3, a: fl });
+      g.tag('+ 400 MW load', 1570, 410, { s: 22, c: C.l3, a: fl });
     },
   });
 

@@ -174,7 +174,7 @@ module.exports = api => {
     draw(g, s) {
       const t = s.t;
       P.heading(g, 'Three turbines for three kinds of site', s.p(0.3, 0.8, E.o));
-      const cols = [[330, 'PELTON', 'high head', '> 500 m', 'pelton'], [960, 'FRANCIS', 'medium head', '30 – 600 m', 'francis'], [1590, 'KAPLAN', 'low head, big flow', '< 40 m', 'kaplan']];
+      const cols = [[330, 'PELTON', 'high head', '> 300 m', 'pelton'], [960, 'FRANCIS', 'medium head', '30 – 600 m', 'francis'], [1590, 'KAPLAN', 'low head, big flow', '< 40 m', 'kaplan']];
       const gov = s.in('gov', 0.6, 0.8), open = 0.55 + 0.45 * Math.sin(Math.max(0, s.since('gov') - 0.6) * 1.5 + Math.PI / 2);
       cols.forEach(([x, name, d1, d2, key], i) => {
         const p = s.p(0.6 + i * 0.25, 0.9, E.o);
