@@ -1,0 +1,23 @@
+{
+  "name": "electrical",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristjohns/Electrical.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristjohns/Electrical/issues"
+  },
+  "homepage": "https://github.com/kristjohns/Electrical#readme",
+  "dependencies": {
+    "@napi-rs/canvas": "^1.1.1"
+  }
+}
